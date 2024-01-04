@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Meetups</title>
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+</head>
+<body>
+    <h1>All Meetups!</h1>
+    <p>Hello World</p>
+
+
+    <!--we can also use another if cond. like  
+        if grade>5 and mode=='edit'-->
+    {% if show_meetups %}
+    <!-- this . is used to access first list item in dictionary in views.py file -->
+        <!-- <h2>{{ meetups.0.title }}</h2>  -->
+        {% for meetup_item in meetups %}
+            <p>{{ meetup_item.title }}</p>
+        {% endfor %}
+    
+    {% else %}
+        <p>No meetups found!</p>
+    {% endif %}
+
+    </body>
+</html>
